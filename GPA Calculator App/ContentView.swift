@@ -1,22 +1,73 @@
-//
-//  ContentView.swift
-//  GPA Calculator App
-//
-//  Created by Robert Beall on 2/17/25.
-//
-
 import SwiftUI
 
+
 struct ContentView: View {
+    
+    @State private var totalPoints: Double = 0
+    @State private var totalClasses: Double = 0
+    @State private var gpa: Double = 0.0
+    @State private var colorFont: Color = .black
+    //make it so that the title GPA calculator will be green if gpa is above 4.0 and yellow if 3.0-3.9 and if lower it is red
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        var gpa: Double {
+                if totalClasses > 0 {
+                    return totalPoints / totalClasses
+                } else {
+                    return 0.0
+                }
+            }
+        VStack(spacing:25) {
+            Text("GPA Calculator")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundStyle(colorFont)
+            Text("Class Grades:")
+                .font(.headline)
+            
+            HStack{
+                Button("A") {
+                    totalPoints += 4
+                    totalClasses += 1
+                }
+                Button("B") {
+                    totalPoints += 3
+                    totalClasses += 1
+                }
+                Button("C") {
+                    totalPoints += 2
+                    totalClasses += 1
+                }
+                Button("D") {
+                    totalPoints += 1
+                    totalClasses += 1
+                }
+                Button("F") {
+                    totalPoints += 0
+                    totalClasses += 1
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            HStack{
+                Button("Honors") {
+                    totalPoints += 0.5
+                }
+                Button("AP") {
+                    totalPoints += 1
+                }
+            }
+
+            .buttonStyle(.borderedProminent)
+            HStack{
+                Text("GPA: \(String(format: "%.2f", gpa))")
+                Text("Total Classes: \(Int(totalClasses))")
+            }
+            
+            
         }
+        
         .padding()
     }
+    
 }
 
 #Preview {
