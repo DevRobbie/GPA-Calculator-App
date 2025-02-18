@@ -99,6 +99,7 @@ struct ContentView: View {
                 Button("Reset") {
                     totalPoints = 0
                     totalClasses = 0
+                    uwPoints = 0
                 }
             }
             .buttonStyle(.borderedProminent)
