@@ -28,7 +28,7 @@ struct ContentView: View {
                 return .green
             } else if gpa >= 3.0 {
                 return .yellow
-            } else if gpa < 0.0 {
+            } else if gpa > 0.0 {
                 return .red
             } else {
                 return .black
