@@ -91,7 +91,7 @@ struct ContentView: View {
             HStack{
                 Text("GPA: \(String(format: "%.2f", gpa))")
                 Text("Unweighted GPA: \(String(format: "%.2f", uwGPA))")
-            }//later add unweighted gpa here and move total classes a line down
+            }
             HStack{
                 Text("Total Classes: \(Int(totalClasses))")
             }
