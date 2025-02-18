@@ -70,7 +70,14 @@ struct ContentView: View {
             HStack{
                 Text("GPA: \(String(format: "%.2f", gpa))")
                 Text("Total Classes: \(Int(totalClasses))")
+            }//later add unweighted gpa here and move total classes a line down
+            HStack {
+                Button("Reset") {
+                    totalPoints = 0
+                    totalClasses = 0
+                }
             }
+            .buttonStyle(.borderedProminent)
             
             
         }
