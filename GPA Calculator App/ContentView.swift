@@ -7,7 +7,6 @@ struct ContentView: View {
     @State private var totalClasses: Double = 0
     @State private var gpa: Double = 0.0
     @State private var colorFont: Color = .black
-    //make it so that the title GPA calculator will be green if gpa is above 4.0 and yellow if 3.0-3.9 and if lower it is red
     var body: some View {
         var gpa: Double {
                 if totalClasses > 0 {
@@ -16,6 +15,17 @@ struct ContentView: View {
                     return 0.0
                 }
             }
+        var colorFont: Color {
+            if gpa >= 4.0 {
+                return .green
+            } else if gpa >= 3.0 {
+                return .yellow
+            } else if gpa < 0.0 {
+                return .red
+            } else {
+                return .black
+            }
+        }
         VStack(spacing:25) {
             Text("GPA Calculator")
                 .font(.largeTitle)
